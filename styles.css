@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 320px; /* 固定宽度 320px */
+    height: 530px; /* 固定高度 530px */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1, h2 {
+    font-size: 16px;
+    margin: 0 0 10px 0;
+}
+
+#fileInput {
+    margin-bottom: 10px;
+}
+#userIdDialog {
+    /* 这里可以添加具体的样式 */
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+#fileNameDisplay {
+    white-space: pre-line; /* 每个文件名独立一行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 0 20px 0; /* 调整间距 */
+}
+
+.upload-button {
+    padding: 10px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.upload-button:hover {
+    background-color: #45a049;
+}
+
+.upload-button img {
+    width: 24px;
+    height: 24px;
+}
+
+#validationStatus, #status {
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+}
+
+#status.success {
+    color: green;
+}
+
+#recordsContainer {
+    margin-top: 60px; /* 调整记录容器距离上传按钮 60px */
+    max-height: 250px; /* 调整记录容器的最大高度 */
+    overflow-y: auto;
+}
+
+.record {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.record .info {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record .actions {
+    display: flex;
+    gap: 5px;
+}
+
+.record .edit, .record .delete {
+    cursor: pointer;
+    color: blue;
+}
+
+.record .delete {
+    color: red;
+}

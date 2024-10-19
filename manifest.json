@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Excel Uploader",
+  "version": "1.0",
+  "description": "侧边栏上传excel.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": [
+    "sidePanel",
+    "activeTab",
+    "storage",
+    "fileSystem"
+  ],
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "单击图标打开"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html",
+    "width": 320
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

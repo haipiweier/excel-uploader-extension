@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Excel Uploader</title> <!-- 页面标题 -->
+    <meta charset="UTF-8"> <!-- 字符编码设置为UTF-8 -->
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- 引入外部CSS文件 -->
+</head>
+<body>
+<!-- 不可修改对话框，用于显示从 background.js 获取的用户名ID -->
+<div id="userIdDialog" class="dialog">
+    <p>用户名ID: <span id="userId"></span></p>
+</div>
+
+<div class="container"> <!-- 主容器 -->
+    <h1>文件上传</h1> <!-- 标题 -->
+    <input type="file" id="fileInput" accept=".xls,.xlsx" multiple /> <!-- 文件输入框，仅接受Excel文件，支持多选 -->
+    <div id="fileNameDisplay"></div> <!-- 新增的显示文件名的 div -->
+    <button id="uploadButton" class="upload-button"> <!-- 上传按钮 -->
+        <img src="Upload.png" alt="上传图标" /> <!-- 上传图标 -->
+        <span>上传</span> <!-- 上传文本 -->
+    </button>
+    <div id="validationStatus"></div> <!-- 验证状态显示区域 -->
+    <div id="status"></div> <!-- 状态显示区域 -->
+    <h2>上传记录</h2> <!-- 上传记录标题 -->
+    <div id="recordsContainer"></div> <!-- 上传记录容器 -->
+</div>
+<script src="popup.js"></script> <!-- 引入外部JavaScript文件 -->
+<script>
+    // 监听message事件
+    window.addEventListener('message', function(event) {
+        if (event.data.type && (event.data.type === 'USER_INFO')) {
+            // 获取用户信息
+            var userInfo = event.data.data;
+            console.log("用户名: ", userInfo.username); // 根据API结构获取用户名
+
+            // 将用户名显示在页面上
+            document.getElementById('userId').textContent = userInfo.username;
+        }
+    }, false);
+</script>
+</body>
